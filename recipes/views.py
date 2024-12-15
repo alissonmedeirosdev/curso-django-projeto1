@@ -15,12 +15,6 @@ def home(request):
                         
     # ''') 
     
-    return render(request, 'recipes/home.html', context={
+    return render(request, 'recipes/pages/home.html', context={
         'name': 'Alisson Medeiros',
     })
-
-def contato(request):
-    return HttpResponse('Página de contato')
-
-def sobre(request):
-    return HttpResponse('Página sobre')
