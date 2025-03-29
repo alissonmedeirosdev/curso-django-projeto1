@@ -6,15 +6,6 @@ from .models import Recipe
 
 # HTTP REQUEST 
 def home(request):
-    # HTTP RESPONSE
-    # return HttpResponse('''
-        
-    #     <h1>
-    #         Olá, Mundo!!
-    #     </h1>                    
-                        
-    # ''') 
-    
     recipes = Recipe.objects.order_by('-id').filter(is_published=True)
     
     return render(request, 'recipes/pages/home.html', context={
