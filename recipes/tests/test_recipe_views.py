@@ -5,8 +5,6 @@ from .test_recipe_base import RecipeTestBase
 
 class RecipeViewsTest(RecipeTestBase):
 
-    # TESTS HOME
-
     def test_recipe_home_view_function_is_correct(self):
         view = resolve(reverse('recipes:home'))
         self.assertIs(view.func, views.home)
@@ -37,7 +35,18 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertIn('5 Porções', content)
         self.assertEqual(len(response_context_recipes), 1)
 
-    # TESTS CATEGORY
+    def test_recipe_home_templete_dont_load_recipes_not_published(self):
+        """
+            Test recipe is published False dont show
+        """
+        self.make_recipe(is_published=False)
+        response = self.client.get(reverse('recipes:home'))
+        content = response.content.decode('utf-8') 
+        
+        self.assertIn(
+            '<h1>Not recipes found here 😓</h1>',
+            content
+        ) 
 
     def test_recipe_category_view_function_is_correct(self):
         view = resolve(reverse('recipes:category', kwargs={'category_id': 1}))
