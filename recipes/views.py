@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_list_or_404, get_object_or_404
 from utils.recipes.factory import make_recipe
@@ -29,3 +28,6 @@ def recipe(request, id):
         'recipe': recipe,
         'is_datails_page': True,
     })
+
+def search(request):
+    pass
