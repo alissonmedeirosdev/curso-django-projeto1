@@ -7,7 +7,7 @@ class PaginationTest(TestCase):
             page_range=list(range(1,21)), # Lista de números 
             qty_pages=4, # Quantidades de paginas exibidas
             current_page=1 # Pagina atual que o usuario está
-        )
+        )['pagination']
 
         self.assertEqual([1,2,3,4], pagination)
 
@@ -16,7 +16,7 @@ class PaginationTest(TestCase):
             page_range=list(range(1,21)), 
             qty_pages=4, 
             current_page=1 
-        )
+        )['pagination']
 
         self.assertEqual([1,2,3,4], pagination)
 
@@ -24,7 +24,7 @@ class PaginationTest(TestCase):
             page_range=list(range(1,21)), 
             qty_pages=4, 
             current_page=3
-        )
+        )['pagination']
 
         self.assertEqual([2,3,4,5], pagination)
 
@@ -33,7 +33,7 @@ class PaginationTest(TestCase):
             page_range=list(range(1,21)), 
             qty_pages=4, 
             current_page=20
-        )
+        )['pagination']
 
         self.assertEqual([17,18,19,20], pagination)
 
@@ -41,6 +41,6 @@ class PaginationTest(TestCase):
             page_range=list(range(1,21)), 
             qty_pages=4, 
             current_page=21
-        )
+        )['pagination']
 
         self.assertEqual([17,18,19,20], pagination)
